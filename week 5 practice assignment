@@ -1,0 +1,74 @@
+def average(s):
+  count=0
+  total=0
+  x=0
+  for i in gra:
+    if s==i[3]:
+      l=i[4]
+      if l=='A':
+        x=10
+      elif l=='AB':
+        x=9
+      elif l=='B':
+        x=8
+      elif l=='BC':
+        x=7
+      elif l=='C':
+        x=6
+      elif l=='CD':
+        x=5
+      else:
+        x=4
+      total+=x
+      count+=1
+  if count==0:
+    return(0)
+  avg=total/count
+  av=round(avg,2)
+  return(av)
+
+
+c = input()
+course = []
+students = []
+grades = []
+while True:
+    lines = input()
+    if lines == 'Students':
+        break
+    else:
+        course.append(lines)
+while True:
+    lines = input()
+    if lines == 'Grades':
+        break
+    else:
+        students.append(lines)
+while True:
+    lines = input()
+    if lines == 'EndOfInput':
+        break
+    else:
+        grades.append(lines)
+co = []
+stud = []
+gra = []
+for i in course:
+    co.append(i.split("~"))
+for i in students:
+    stud.append(i.split("~"))
+for i in grades:
+    gra.append(i.split("~"))
+result=[]    
+for i in stud:
+  new=[]
+  new.append(i[0])
+  new.append(i[1])
+  avj=str(average(i[0]))
+  new.append(avj)
+  result.append(new[0:])
+result.sort()
+for i in result:
+  print("~".join(i))
+  
+  
