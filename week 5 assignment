@@ -1,0 +1,46 @@
+def getname(s):
+  for i in borrowers:
+    j=i.split("~")
+    if s==j[0]:
+      return(j[1])
+def gettitle(s):
+  for i in books:
+    j=i.split("~")
+    if s==j[0]:
+      return(j[1])
+x=input()
+books=[]
+borrowers=[]
+checkouts=[]
+while True:
+  line=input()
+  if line=='Borrowers':
+    break
+  else:
+    books.append(line)
+while True:
+  line=input()
+  if line=='Checkouts':
+    break
+  else:
+    borrowers.append(line)
+while True:
+  line=input()
+  if line=='EndOfInput':
+    break
+  else:
+    checkouts.append(line)
+new=[]    
+for i in checkouts:
+  j=i.split("~")
+  l=[]
+  l.append(j[2])
+  l.append(getname(j[0]))
+  l.append(j[1])
+  l.append(gettitle(j[1]))
+  new.append(l[0:])
+new.sort()  
+for i in new:
+  print("~".join(i))
+            
+  
